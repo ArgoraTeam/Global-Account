@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {Router, Switch, Route} from 'react-router-dom';
 import {createBrowserHistory} from 'history';
-import arweave from './api/arweave';
-import {GlobalStorage, getGlobalStorageOfWallet} from './arweave-globalstorage';
 import { ctx } from './utils';
 
 import { ThemeProvider } from 'styled-components';
@@ -26,13 +24,6 @@ function App() {
   const setTheme = (t: boolean) => {
     updateTheme(t);
   }
-
-  useEffect(() => {
-    (async () => {
-      const walletStorage = await getGlobalStorageOfWallet(arweave, "test");
-      console.log(walletStorage);
-    })()
-  });
 
   return (
     <ctx.Provider value={{
