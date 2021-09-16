@@ -14,8 +14,9 @@ import AppBarBottom from './components/Header/AppBarBottom';
 import Profile from './components/Profile';
 import Main from './components/Main';
 
+const history = createBrowserHistory();
+
 function App() {
-  const history = createBrowserHistory();
   const [walletAddr, updateWalletAddr] = useState("");
   const setWalletAddr = (addr: string) => {
     updateWalletAddr(addr);
@@ -36,7 +37,7 @@ function App() {
   return (
     <ctx.Provider value={{
       walletAddr, setWalletAddr, 
-      theme, setTheme,
+      theme, setTheme
     }}>
       <ThemeProvider theme={theme ? light : dark}>
         <GlobalStyles />

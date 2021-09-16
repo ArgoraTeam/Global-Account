@@ -5,12 +5,15 @@ import reportWebVitals from './reportWebVitals';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { C_appVersionTag } from './constants';
 import { BannerS } from './style/components/common';
+import { StylesProvider } from '@material-ui/core/styles';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CssBaseline />
-    {C_appVersionTag[0].search(/[-dev]/g) > -1 && <BannerS>DEVELOPMENT VERSION</BannerS>}
-    <App />
+    <StylesProvider injectFirst>
+      <CssBaseline />
+      {C_appVersionTag[0].search(/[-dev]/g) > -1 && <BannerS>DEVELOPMENT VERSION</BannerS>}
+      <App />
+    </StylesProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
