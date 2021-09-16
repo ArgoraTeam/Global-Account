@@ -1,6 +1,7 @@
 import './App.css';
 import {GlobalStorage, getGlobalStorageOfWallet} from './arweave-globalstorage';
 import Arweave from 'arweave';
+import { useEffect } from 'react';
 
 const arweave = Arweave.init({
   host: 'arweave.net',// Hostname or IP address for a Arweave host
@@ -11,7 +12,12 @@ const arweave = Arweave.init({
 });
 
 function App() {
-  getGlobalStorageOfWallet(arweave, "test");
+  useEffect(() => {
+    (async () => {
+      const walletStorage = await getGlobalStorageOfWallet(arweave, "test");
+      console.log(walletStorage);
+    })()
+  });
 
   return (
     <div className="App">
