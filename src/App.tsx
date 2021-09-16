@@ -1,23 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {GlobalStorage, getGlobalStorageOfWallet} from './arweave-globalstorage';
+import Arweave from 'arweave';
+
+const arweave = Arweave.init({
+  host: 'arweave.net',// Hostname or IP address for a Arweave host
+  port: 443,          // Port
+  protocol: 'https',  // Network protocol http or https
+  timeout: 20000,     // Network request timeouts in milliseconds
+  logging: false,
+});
 
 function App() {
+  getGlobalStorageOfWallet(arweave, "test");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        Global Account
       </header>
     </div>
   );

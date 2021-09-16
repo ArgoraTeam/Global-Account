@@ -1,0 +1,3 @@
+[submodule "src/arweave-globalstorage"]
+	path = src/arweave-globalstorage
+	url = git@github.com:bidetaggle/arweave-globalstorage.git
