@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -14,8 +19,12 @@
     "arweave-globalstorage": "^0.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-epic-spinners": "^0.5.0",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "styled-components": "^5.3.1",
     "typescript": "^4.4.3",
+    "use-arconnect": "^1.0.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -41,5 +50,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.9",
+    "@types/styled-components": "^5.1.14"
   }
 }
