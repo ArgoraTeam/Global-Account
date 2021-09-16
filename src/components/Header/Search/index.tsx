@@ -20,7 +20,7 @@ function Search({className}: {className?: string}) {
     e.preventDefault();
     const submitted = value.trim();
     if(submitted.length > 0){
-      history.push(`/${pathBase}/profile/${submitted}`);
+      history.push(`/${pathBase}/${submitted}`);
     }
   }
 

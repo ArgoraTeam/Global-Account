@@ -11,7 +11,7 @@ import {light, dark} from './style/themes';
 import Header from './components/Header';
 import DevMode from './components/ui/DevMode';
 import AppBarBottom from './components/Header/AppBarBottom';
-import Profile from './components/Profile';
+import Wallet from './components/Wallet';
 import Main from './components/Main';
 
 const history = createBrowserHistory();
@@ -45,7 +45,7 @@ function App() {
           <Router history={history}>
             <Switch>
               <Route exact path='/'><Header /><DevMode /></Route>
-              <Route exact path='/:pathBase/profile/:addr'><Header /><Profile /><AppBarBottom /></Route>
+              <Route exact path='/:pathBase/:addr'><Header /><Wallet /><AppBarBottom /></Route>
               <Route exact path='/:pathBase'><Header /><Main /><AppBarBottom /></Route>
             </Switch>
           </Router>

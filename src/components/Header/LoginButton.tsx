@@ -2,7 +2,7 @@ import {useEffect, useContext} from 'react';
 import {LoginButtonS} from '../../style/components/Header';
 import useArConnect from 'use-arconnect';
 import {ctx} from '../../utils';
-import ProfileButton from './ProfileButton';
+import GlobalAccountButton from './GlobalAccountButton';
 
 const arConnectPermissions = [
   "ACCESS_ADDRESS",
@@ -45,7 +45,7 @@ function LoginButton() {
     ? <LoginButtonS variant="outlined" color="inherit" onClick={connectWallet}>
         {arConnect ? "Log In" : "Sign up"} 
       </LoginButtonS>
-    : <ProfileButton />
+    : <GlobalAccountButton />
   );
 }
 

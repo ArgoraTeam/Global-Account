@@ -7,7 +7,7 @@ import {Menu, MenuItem} from '@material-ui/core';
 import {IconButtonS} from '../../style/components/Header';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-function ProfileButton(){
+function GlobalAccountButton(){
   const arConnect = useArConnect();
   const {walletAddr, setWalletAddr} = useContext(ctx);
   const [anchorEl, setAnchorEl] = useState<(EventTarget & HTMLElement | null)>(null);
@@ -28,8 +28,8 @@ function ProfileButton(){
     setAnchorEl(null);
   };
 
-  const openProfile = (e: React.MouseEvent<HTMLElement>) => {
-    history.push(`/${pathBase}/profile/${walletAddr}`);
+  const openGlobalAccount = (e: React.MouseEvent<HTMLElement>) => {
+    history.push(`/${pathBase}/${walletAddr}`);
     handleClose();
   };
 
@@ -43,11 +43,11 @@ function ProfileButton(){
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={openProfile}>Profile</MenuItem>
+        <MenuItem onClick={openGlobalAccount}>My Global Account</MenuItem>
         <MenuItem onClick={disconnectWallet}>Logout</MenuItem>
       </Menu>
     </>
   ); 
 }
 
-export default ProfileButton;
+export default GlobalAccountButton;

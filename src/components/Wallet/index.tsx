@@ -1,7 +1,7 @@
 import {useParams} from 'react-router-dom';
 import {PathParams} from '../../types';
 
-function Profile() {
+function Wallet() {
   const {addr} = useParams<PathParams>();
 
   return(
@@ -11,4 +11,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Wallet;
