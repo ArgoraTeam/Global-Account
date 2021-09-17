@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useHistory, useParams} from "react-router-dom";
-import {FormS, ButtonS, InputS} from "../../../style/components/Header";
+import {FormS, InputButtonS, InputS} from "../../../style/components/Header";
 import {PathParams} from "../../../types";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -31,9 +31,9 @@ function Search({className}: {className?: string}) {
         value={value}
         placeholder={"Search a wallet"}
       />
-      <ButtonS onClick={handleSubmit}>
+      <InputButtonS onClick={handleSubmit}>
         <FontAwesomeIcon icon={faRocket} />
-      </ButtonS>
+      </InputButtonS>
     </FormS>
   );
 }

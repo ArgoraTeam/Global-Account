@@ -1,5 +1,7 @@
+import { Button } from '@material-ui/core';
 import styled from 'styled-components';
 import {Alert} from '@material-ui/lab';
+import { colors, transition } from '../../constants';
 
 const AlertS = styled(Alert)`
   margin: auto;
@@ -18,4 +20,21 @@ const BannerS = styled('div')`
   z-index: 1000;
 `;
 
-export {AlertS, BannerS};
+const ButtonS = styled(Button)`
+  ${transition}
+  color: ${colors.purple[0]};
+  &:hover {
+    color: ${colors.purple[2]};
+  }
+`;
+
+const CenteredS = styled('div')`
+  text-align: center;
+`;
+
+const JsonS = styled('div')`
+  white-space: pre;
+  font-family: monospace;
+`;
+
+export {AlertS, BannerS, ButtonS, CenteredS, JsonS};

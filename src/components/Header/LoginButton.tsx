@@ -32,13 +32,11 @@ function LoginButton() {
     try {
       await arConnect.connect(arConnectPermissions);
       setWalletAddr(await arConnect.getActiveAddress());
-      window.addEventListener("walletSwitch", (e: any) =>
-        setWalletAddr(e.detail.address)
-      );
     } catch {
       alert("Error: Could not connect to ArConnect");
     }
   };
+  
 
   return(
     walletAddr === ""

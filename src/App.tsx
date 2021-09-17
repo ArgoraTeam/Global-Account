@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {Router, Switch, Route} from 'react-router-dom';
 import {createBrowserHistory} from 'history';
 import { ctx } from './utils';
@@ -24,6 +24,16 @@ function App() {
   const setTheme = (t: boolean) => {
     updateTheme(t);
   }
+
+  const walletSwitch = (event: any) => {
+    console.log("listener");
+    setWalletAddr(event.detail.address);
+  }
+
+  useEffect(() => {
+    window.addEventListener("walletSwitch", walletSwitch);
+    return () => window.removeEventListener("walletSwitch", walletSwitch);
+  })
 
   return (
     <ctx.Provider value={{

@@ -28,21 +28,6 @@ const FormS = styled('form')`
   }
 `;
 
-const InputLeftS = styled('div')`
-  ${transition}
-  flex: 1;
-  display: flex;
-  border: 1px solid ${colors.purple[0]};
-  border-right: 0;
-  background-color: ${({theme}) => theme.postBackground};
-  height: 47px;
-  border-radius: 25px 0px 0px 25px;
-  align-items: center;
-  &:hover {
-    border-color: ${({theme}) => theme.greenInvert};
-  }
-`;
-
 const InputS = styled('input').attrs(props => ({
   className: props.className,
   spellCheck: false
@@ -68,9 +53,6 @@ const InputS = styled('input').attrs(props => ({
   &:hover {
     border-color: ${({theme}) => theme.greenInvert};
   }
-  ${InputLeftS}:hover & {
-    border-color: ${({theme}) => theme.greenInvert};
-  }
   &:focus {
     outline: none;
   }
@@ -79,7 +61,7 @@ const InputS = styled('input').attrs(props => ({
   }
 `;
 
-const ButtonS = styled('div')`
+const InputButtonS = styled('div')`
   ${transition}
   border: 1px solid ${colors.purple[0]};
   background-color: ${({theme}) => theme.postBackground};
@@ -110,4 +92,4 @@ const IconButtonS = styled(IconButton)`
   color: ${({ theme }) => theme.text};
 `;
 
-export {AppBarS, AppBarBottomS, FormS, InputLeftS, InputS, ButtonS, LoginButtonS, IconButtonS};
+export {AppBarS, AppBarBottomS, FormS, InputS, InputButtonS, LoginButtonS, IconButtonS};
