@@ -34,8 +34,7 @@ function Wallet() {
 
   const activateGlobalAccount = async () => {
     const globalstorage = new GlobalStorage("Global-Account", arweave);
-    const isActivated = await globalstorage.activate();
-    console.log(isActivated);
+    await globalstorage.activate();
   };
 
   return(
@@ -45,6 +44,13 @@ function Wallet() {
       {loading ? "loading" :
         globalAccountStatus ?
         <>
+          <CenteredS>
+            {addr === walletAddr && 
+              <ButtonS onClick={activateGlobalAccount}>
+                {globalAccountStatus === "error" ? "Activate your Global Account" : "Reset your Global Account"}
+              </ButtonS>
+            }
+          </CenteredS>
           <div>
             {globalAccountStatus === "error" && <>Status: [Error] - {globalAccountResult}</>}
             {globalAccountStatus === "pending" && <>Status: [Warning] - This user's Global Account was recently reset and its last state has not been confirmed by the network yet.</>}
@@ -53,13 +59,6 @@ function Wallet() {
             <div>Result: </div>
             <JsonS>{globalAccountResult}</JsonS>
           </>}
-          <CenteredS>
-            {addr === walletAddr && 
-              <ButtonS onClick={activateGlobalAccount}>
-                {globalAccountStatus === "error" ? "Activate your Global Account" : "Reset your Global Account"}
-              </ButtonS>
-            }
-          </CenteredS>
         </>
         : "Invalid wallet address"
       }
