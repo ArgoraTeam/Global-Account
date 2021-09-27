@@ -1,16 +1,18 @@
 import { useContext, useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
 import arweave from '../../api/arweave';
-import { GlobalStorage, getGlobalStorageOfWallet } from '../../arweave-globalstorage/lib';
+import { GlobalStorage, getGlobalStorageOfWallet, T_GlobalStorage } from 'arweave-globalstorage';
 import {PathParams} from '../../types';
 import { ButtonS, CenteredS, JsonS } from '../../style/components/common';
 import { ctx } from '../../utils';
+import Table from './Table';
 
 function Wallet() {
   const {addr} = useParams<PathParams>();
   const {walletAddr} = useContext(ctx);
-  const [globalAccountResult, setGlobalAccountResult] = useState<string | null>(null);
+  const [globalAccount, setGlobalAccount] = useState<T_GlobalStorage | null>();
   const [globalAccountStatus, setGlobalAccountStatus] = useState<string | null>(null);
+  const [globalAccountDescription, setGlobalAccountDescription] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,8 +21,9 @@ function Wallet() {
       setLoading(true);
       if(/^[a-zA-Z0-9\-_]{43}$/.test(addr.trim())){
         const walletStorage = await getGlobalStorageOfWallet(addr, arweave);
+        setGlobalAccount(walletStorage.result);
         setGlobalAccountStatus(walletStorage.status);
-        setGlobalAccountResult(walletStorage.status !== "error" ? JSON.stringify(walletStorage.result, null, 2) : walletStorage.result);
+        setGlobalAccountDescription(walletStorage.description);
       }
       
       setLoading(false);
@@ -28,7 +31,6 @@ function Wallet() {
 
     return () => {
       setGlobalAccountStatus(null);
-      setGlobalAccountResult(null);
     }
   }, [addr]);
 
@@ -51,13 +53,11 @@ function Wallet() {
               </ButtonS>
             }
           </CenteredS>
-          <div>
-            {globalAccountStatus === "error" && <>Status: [Error] - {globalAccountResult}</>}
-            {globalAccountStatus === "pending" && <>Status: [Warning] - This user's Global Account was recently reset and its last state has not been confirmed by the network yet.</>}
-          </div>
+          <div>Status: [{globalAccountStatus}] - {globalAccountDescription}</div>
           {globalAccountStatus !== "error" && <>
             <div>Result: </div>
-            <JsonS>{globalAccountResult}</JsonS>
+            <JsonS>{JSON.stringify(globalAccount, null, 2)}</JsonS>
+            {globalAccount && globalAccount.apps.map((app, i) => <Table key={i} app={app} />)}
           </>}
         </>
         : "Invalid wallet address"

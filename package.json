@@ -16,7 +16,7 @@
     "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
     "arweave": "^1.10.16",
-    "arweave-globalstorage": "^0.0.5",
+    "arweave-globalstorage": "^0.0.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-epic-spinners": "^0.5.0",

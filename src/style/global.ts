@@ -27,6 +27,10 @@ const GlobalStyles = createGlobalStyle`
       display: none !important;
     }
   }
+
+  td{
+    border: 1px solid red;
+  }
 `;
 
 export default GlobalStyles;
