@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
 import arweave from '../../api/arweave';
-import { GlobalStorage, getGlobalStorageOfWallet, T_GlobalStorage } from 'arweave-globalstorage';
+import { GlobalStorage, getGlobalStorageOfWallet, T_GlobalStorage } from '../../arweave-globalstorage/lib';
 import {PathParams} from '../../types';
 import { ButtonS, CenteredS, JsonS } from '../../style/components/common';
 import { ctx } from '../../utils';

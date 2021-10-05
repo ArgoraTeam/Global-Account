@@ -11,6 +11,7 @@ import DevMode from './components/ui/DevMode';
 import AppBarBottom from './components/Header/AppBarBottom';
 import Wallet from './components/Wallet';
 import Main from './components/Main';
+import Edit from './components/Edit';
 
 const history = createBrowserHistory();
 
@@ -46,6 +47,8 @@ function App() {
           <Router history={history}>
             <Switch>
               <Route exact path='/'><Header /><DevMode /></Route>
+              <Route exact path='/:pathBase/edit'><Header /><Edit /></Route>
+              <Route exact path='/:pathBase/edit/:AppName'><Header /><Edit /></Route>
               <Route exact path='/:pathBase/:addr'><Header /><Wallet /><AppBarBottom /></Route>
               <Route exact path='/:pathBase'><Header /><Main /><AppBarBottom /></Route>
             </Switch>
